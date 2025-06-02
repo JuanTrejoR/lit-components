@@ -84,8 +84,6 @@ export class MiLogin extends LitElement {
     @property()
     login = true;
 
-    
-
     getUser(){
         const usuarios = JSON.parse(localStorage.getItem('usuarios') || '')
         return usuarios;
@@ -111,23 +109,23 @@ export class MiLogin extends LitElement {
         return html`
             ${this.login ? html`
                 <div id="wrapper">
-                <div id='container'>
-                    <h1>Login</h1>
-                    <div class="input-icon">
-                        <img src="usuario.png" alt="icono de usuario">
-                        <input type="text" placeholder="Username" id='userInput'>
+                    <div id='container'>
+                        <h1>Login</h1>
+                        <div class="input-icon">
+                            <img src="usuario.png" alt="icono de usuario">
+                            <input type="text" placeholder="Username" id='userInput'>
+                        </div>
+                        <div class="input-icon">
+                            <img src="candado.png" alt="icono de usuario">
+                            <input type="password" placeholder="Password" id="passInput">
+                        </div>
+                        
+                        <div class="forgot-login">
+                            <span>Forgot your password?</span>
+                            <button @click=${this.handleClick}>Login</button>
+                        </div>
                     </div>
-                    <div class="input-icon">
-                        <img src="candado.png" alt="icono de usuario">
-                        <input type="password" placeholder="Password" id="passInput">
-                    </div>
-                    
-                    <div class="forgot-login">
-                        <span>Forgot your password?</span>
-                        <button @click=${this.handleClick}>Login</button>
-                    </div>
-                </div>
-            </div>`
+                </div>`
             : html`<my-home/>`
             }
 
