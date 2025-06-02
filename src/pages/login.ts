@@ -1,10 +1,12 @@
-import { LitElement, css, html, type CSSResultGroup } from "lit";
-import { customElement, property, query, state } from "lit/decorators.js";
+import { LitElement, css, html } from "lit";
+import { customElement, property, query } from "lit/decorators.js";
+import '../pages/home.ts'
 
 @customElement('mi-login')
 export class MiLogin extends LitElement {
     static styles = css`
         #wrapper {
+            background-color: rgb(201, 26, 26);
             width: 100%;
             height: 100vh;
             display: flex;
@@ -79,8 +81,8 @@ export class MiLogin extends LitElement {
     userInput!: HTMLInputElement ;
     @query('#passInput')
     passInput!: HTMLInputElement ;
-    @state()
-    error = false;
+    @property()
+    login = true;
 
     
 
@@ -99,6 +101,7 @@ export class MiLogin extends LitElement {
         }
         else{
             alert('CORRECTO!!')
+            this.login = false
         }
     }
     
@@ -106,11 +109,12 @@ export class MiLogin extends LitElement {
     name = 'World'
     render() {
         return html`
-            <div id="wrapper">
+            ${this.login ? html`
+                <div id="wrapper">
                 <div id='container'>
                     <h1>Login</h1>
                     <div class="input-icon">
-                        <img src="./public/usuario.png" alt="icono de usuario">
+                        <img src="usuario.png" alt="icono de usuario">
                         <input type="text" placeholder="Username" id='userInput'>
                     </div>
                     <div class="input-icon">
@@ -123,7 +127,12 @@ export class MiLogin extends LitElement {
                         <button @click=${this.handleClick}>Login</button>
                     </div>
                 </div>
-            </div>
+            </div>`
+            : html`<my-home/>`
+            }
+
+
+            
         `
     }
 }
