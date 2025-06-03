@@ -11,11 +11,17 @@ export class Header extends LitElement {
             font-size: 20px;
             font-weight: 700;
         }
+        p{
+            margin: 0;
+        }
+        img{
+            width: 300px;
+        }
     `
     render() {
         return html`
         <div class="wrapper">
-            <p>VISUALIZADOR DE POKEMON</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png">
         </div>
         `
     }

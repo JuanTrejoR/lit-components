@@ -82,7 +82,7 @@ export class MiLogin extends LitElement {
     @query('#passInput')
     passInput!: HTMLInputElement ;
     @property()
-    login = true;
+    login = false;
 
     getUser(){
         const usuarios = JSON.parse(localStorage.getItem('usuarios') || '')

@@ -10,15 +10,14 @@ export class Main extends LitElement {
 
     static styles = css`
         .wrapper{
-            background-color: rgba(172, 224, 255, 0.3);
             display: flex;
             flex-wrap: wrap;
         }
         .container-pkm{
-            width: 200px;
+            width: 33%;
             text-align: center;
         }
-    
+        
     `
 
     constructor() {
@@ -39,8 +38,8 @@ export class Main extends LitElement {
                 ${this.result.map((pokemon, index) => {
                     return html`
                             <div class='container-pkm'>
-                                <p>ID: ${index + 1}</p>
-                                <p>NOMBRE: ${pokemon.name}</p>
+                                <p># ${index+1} ${pokemon.name.toUpperCase()}</p>
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${index+1}.png">
                             </div>
                         `
                     })}
